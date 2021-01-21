@@ -1,0 +1,403 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    box-sizing: border-box;
+    background-color: lightblue;
+    margin: 0;
+    padding: 0;
+}
+
+#root {
+    padding: 20px 10px;
+    background-color: ghostwhite;
+    box-shadow: 0 0 10px 1px rgb(0, 94, 122);
+    box-sizing: border-box;
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+
+    -webkit-user-select: none;
+    /* Chrome/Safari/Opera */
+
+    -khtml-user-select: none;
+    /* Konqueror */
+
+    -moz-user-select: none;
+    /* Firefox */
+
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+
+    user-select: none;
+    /* Non-prefixed version, currently
+    
+    not supported by any browser */
+
+}
+
+.tableTitle {
+    text-align: center;
+
+    >h1 {
+        font-size: 24px;
+        color: black;
+        padding: 0;
+        margin: 0;
+        margin-bottom: 20px;
+    }
+}
+
+.datetime {
+    width: 100%;
+    display: flex;
+}
+
+table {
+
+    tr,
+    th,
+    td {
+        border: 1px solid #eff2f7;
+    }
+
+    background-color: white;
+    width: 100%;
+    border: 1px solid #eff2f7;
+    border-collapse: collapse;
+
+    input {
+        outline: 1px solid green;
+        border: 0;
+    }
+}
+
+table thead tr {
+    height: 35px;
+    background-color: ghostwhite;
+
+    th {
+        min-width: 70px;
+        font-size: 18px;
+        color: #000000;
+
+        th:nth-child(2),
+        th:nth-child(3) {
+            min-width: 100px;
+        }
+    }
+}
+
+.active {
+    background-color: #b4ffff !important;
+    -webkit-transform: translateY(-3px);
+    -ms-transform: translateY(-3px);
+    transform: translateY(-3px);
+    box-shadow: 0px 1px 0px #999, 0px 3px 3px #001135;
+}
+
+thead,
+tbody {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+table tbody {
+    tr {
+        td {
+            font-size: 16px;
+            height: 30px;
+            padding: 0 5px;
+            position: relative;
+            box-sizing: border-box;
+
+            >div {
+                position: relative;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                small {
+                    margin-left: 5px;
+                    color: green;
+                }
+            }
+        }
+    }
+
+    tr:hover {
+        background-color: rgb(233, 255, 255);
+    }
+
+}
+
+tfoot {
+    font-size: 18px;
+    font-weight: 700;
+
+    tr {
+        background-color: aquamarine;
+
+        td {
+            height: 40px;
+            box-sizing: border-box;
+            position: relative;
+
+            >div {
+                position: relative;
+            }
+        }
+
+        .fine {
+            color: #00c800;
+        }
+
+        .general {
+            color: blue;
+        }
+
+        .bad {
+            color: red;
+        }
+
+        .wrong {
+            color: red;
+            background-color: yellow
+        }
+    }
+}
+
+.cvinput {
+    border: 1px solid #00c800;
+    box-shadow: 0 0 2px 1px #00c800;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    z-index: 9;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 3px 5px 0;
+    font-size: 16px;
+}
+
+.editDateBackground {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background: none;
+}
+
+.editDate {
+    position: absolute;
+    z-index: 1000;
+    box-shadow: 0 1px 6px 0px #0000003b;
+}
+
+.dateInput {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+
+    .dateInputLable {
+        color: #353535;
+        font-size: 16px;
+        line-height: 30px;
+        align-self: flex-start;
+        margin-right: 15px;
+    }
+
+    .dateInputcontent {
+        background-color: transparent;
+        width: 250px;
+        border-radius: 4px;
+        margin-right: 15px;
+        margin-bottom: 10px;
+
+
+        .checkDateInput {
+            text-align: center;
+            box-sizing: border-box;
+            cursor: pointer;
+            height: 30px;
+            line-height: 30px;
+            border: 1px solid transparent;
+            background: white;
+            width: 100%;
+            color: #849095;
+            border-radius: 4px;
+            box-shadow: inset 0 1px 3px 1px rgba(35, 57, 66, 0.21);
+            outline: 0;
+        }
+
+    }
+
+    .submitDateBtn {
+        height: 30px;
+        overflow: hidden;
+        width: 70px;
+        text-align: center;
+        cursor: pointer;
+        box-sizing: border-box;
+        color: #353535;
+        font-size: 15px;
+        border-radius: 4px;
+        margin-bottom: 10px;
+        padding: 4px;
+        line-height: 20px;
+        background-color: #f4fffe;
+        touch-action: manipulation;
+        @extend .noselect;
+        position: relative;
+        box-shadow: inset 0 0 1px 1px white;
+        border: 1px solid #eff2f7;
+
+        &:hover {
+            border: 1px solid transparent;
+            box-shadow: 0 0px 3px 0px rgba(35, 57, 66, 0.21);
+        }
+
+        &:active {
+            color: #849095;
+            font-size: 14px;
+            border: 1px solid transparent;
+            box-shadow: inset 0 1px 3px 0px rgba(35, 57, 66, 0.21);
+        }
+    }
+}
+
+
+
+.addCampagenform {
+    margin-top: 5px;
+    display: flex;
+    box-sizing: border-box;
+    justify-content: space-between;
+    align-items: center;
+    transition: all .2;
+
+    .CampagenformContainer {
+        display: flex;
+        box-sizing: border-box;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .CampagenformContainer div input {
+        margin-top: 5px;
+        box-sizing: border-box;
+        border-radius: 4px;
+        border: 1px solid transparent;
+        box-shadow: inset 0 1px 3px 1px rgba(35, 57, 66, 0.21);
+        background: white;
+        padding: 5px;
+        font-size: 14px;
+        margin-right: 10px;
+
+        &:focus {
+            border-color: #66afe9;
+            outline: 0;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+            box-shadow: inset 0 1px 3px 1px rgba(35, 57, 66, 0.21),inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6)
+        }
+
+        &::-webkit-input-placeholder {
+            font-size: 12px;
+        }
+    }
+
+    .CampagenformSubmit input {
+        box-sizing: border-box;
+        border-radius: 4px;
+        border: 0px solid transparent;
+        background: white;
+        padding: 0 5px;
+        font-size: 14px;
+        height: 28px;
+        width: 50px;
+        box-shadow: 0 1px 1px 0 rgba(35, 57, 66, 0.21);
+        outline: 0;
+        transition: all .2;
+
+        &:hover {
+            box-shadow: 0 1px 3px 1px rgba(35, 57, 66, 0.21);
+        }
+
+        &:active {
+            color: grey;
+            box-shadow: inset 0 1px 3px 1px rgba(35, 57, 66, 0.21);
+        }
+    }
+}
+
+@media screen and(max-width: 850px) {
+    .CampagenformSubmit input {
+        margin-right: 20px;
+        transform: scale(1.2);
+    }
+}
+
+@media screen and(max-width: 768px) {
+    table thead tr {
+        th:last-child {
+            display: none;
+        }
+    }
+
+    table tbody tr {
+        td:last-child {
+            display: none;
+        }
+    }
+
+    table tfoot tr {
+        td:last-child {
+            display: none;
+        }
+    }
+}
+
+@media screen and(max-width: 576px) {
+    .dateInputLable {
+        display: none;
+    }
+
+    table thead tr {
+        th:nth-child(2) {
+            display: none;
+        }
+    }
+
+    table tbody tr {
+        td:nth-child(2) {
+            display: none;
+        }
+    }
+
+    table tfoot tr {
+        td:nth-child(2) {
+            display: none;
+        }
+    }
+
+
+
+    .CampagenformContainer {
+        >div input {
+            width: 200px;
+        }
+    }
+}
